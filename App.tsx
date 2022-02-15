@@ -1,12 +1,16 @@
 import * as React from 'react';
-import {View, StyleSheet} from 'react-native';
-
-import AuthScreen from './src/components/screens/AuthScreen';
+import {View, StyleSheet, StatusBar} from 'react-native';
+import AppContainer from './src/components/elements/AppContainer';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <AuthScreen />
+      <StatusBar
+        barStyle="dark-content"
+        translucent
+        backgroundColor="transparent"
+      />
+      <AppContainer />
     </View>
   );
 }
