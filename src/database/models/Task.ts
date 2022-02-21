@@ -1,5 +1,3 @@
-import Realm from 'realm';
-
 const TaskSchema = {
   name: 'Task',
   properties: {
