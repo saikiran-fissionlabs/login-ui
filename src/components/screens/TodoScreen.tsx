@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   Button,
   FlatList,
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import TaskItem, {TaskItemProps} from '../../components/TaskItem';
+import AppContext from '../../contexts/AppContext';
 import {createTask, getTasks} from '../../database/services/Task';
 
 const styles = StyleSheet.create({
@@ -34,9 +35,10 @@ const styles = StyleSheet.create({
 const TodoScreen = () => {
   const [todoList, setTodoList] = React.useState([]);
   const [task, setTask] = React.useState('');
+  const {user} = useContext(AppContext);
 
   const fetchTasks = async () => {
-    const tasks = await getTasks();
+    const tasks = await getTasks(user?.email);
     setTodoList(tasks);
   };
 
@@ -61,7 +63,7 @@ const TodoScreen = () => {
             if (!task) {
               return;
             }
-            await createTask(task);
+            await createTask(task, user?.email);
             setTask('');
             fetchTasks();
           }}

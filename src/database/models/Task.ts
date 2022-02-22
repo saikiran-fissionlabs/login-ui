@@ -4,6 +4,7 @@ const TaskSchema = {
     id: 'string',
     title: 'string',
     completed: 'bool',
+    userEmail: 'string',
   },
   primaryKey: 'id',
 };

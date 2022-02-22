@@ -5,12 +5,14 @@ import {useNavigation} from '@react-navigation/native';
 import AuthInput from '../inputs/AuthInput';
 import AuthButton from '../buttons/AuthButton';
 import {createUser, getUser} from '../../database/services/User';
+import AppContext from '../../contexts/AppContext';
 
 const RegisterView = () => {
   const navigation = useNavigation();
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [cnfmPassword, setCnfmPassword] = React.useState('');
+  const {setUser} = React.useContext(AppContext);
 
   const handleSubmit = async () => {
     const newEmail = email?.trim();
@@ -30,12 +32,13 @@ const RegisterView = () => {
     const existingUser = await getUser(newEmail);
 
     if (existingUser?.email) {
-      Alert.alert('Error', 'User already exist, please Login instea');
+      Alert.alert('Error', 'User already exist, please Login instead');
       return;
     }
 
     createUser(newEmail, newPassword).then(() => {
       Keyboard.dismiss();
+      setUser({email: newEmail});
       navigation.navigate('Home');
     });
   };

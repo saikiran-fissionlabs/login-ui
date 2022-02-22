@@ -5,11 +5,13 @@ import {useNavigation} from '@react-navigation/native';
 import AuthInput from '../inputs/AuthInput';
 import AuthButton from '../buttons/AuthButton';
 import {getUser} from '../../database/services/User';
+import AppContext from '../../contexts/AppContext';
 
 const LoginView = () => {
   const navigation = useNavigation();
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const {setUser} = React.useContext(AppContext);
 
   const handleSubmit = async () => {
     const newEmail = email?.trim();
@@ -28,6 +30,7 @@ const LoginView = () => {
     }
 
     Keyboard.dismiss();
+    setUser({email: newEmail});
     navigation.navigate('Home');
   };
 
