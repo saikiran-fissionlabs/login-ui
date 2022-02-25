@@ -31,7 +31,7 @@ const LoginView = () => {
 
     Keyboard.dismiss();
     setUser({email: newEmail});
-    navigation.navigate('Home');
+    navigation.navigate('App');
   };
 
   return (

@@ -39,7 +39,7 @@ const RegisterView = () => {
     createUser(newEmail, newPassword).then(() => {
       Keyboard.dismiss();
       setUser({email: newEmail});
-      navigation.navigate('Home');
+      navigation.navigate('App');
     });
   };
 

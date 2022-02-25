@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {View, StyleSheet, Button, Text} from 'react-native';
-import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
-
 const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
