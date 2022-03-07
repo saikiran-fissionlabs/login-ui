@@ -1,15 +1,9 @@
 import * as React from 'react';
 import {View, StyleSheet, Button, Text} from 'react-native';
-const NotificationScreen = ({navigation}) => {
+const NotificationSubScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to Notification Screen</Text>
-      <Button
-        title="Goto my sub screen"
-        onPress={() => {
-          navigation.navigate('NotificationSubScreen');
-        }}
-      />
+      <Text style={styles.welcome}>Welcome to Notification sub screen</Text>
     </View>
   );
 };
@@ -26,4 +20,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NotificationScreen;
+export default NotificationSubScreen;

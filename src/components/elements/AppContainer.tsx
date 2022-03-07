@@ -16,6 +16,8 @@ import homeIcon from '../../assets/images/home.png';
 import notificationIcon from '../../assets/images/bell.png';
 import searchIcon from '../../assets/images/search.png';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import SearchSubScreen from '../screens/SearchSubScreen';
+import NotificationSubScreen from '../screens/NotificationSubScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -81,6 +83,11 @@ function AppContainer() {
             options={{header: () => null}}
           />
           <Stack.Screen name="Todo" component={TodoScreen} />
+          <Stack.Screen name="SearchSubScreen" component={SearchSubScreen} />
+          <Stack.Screen
+            name="NotificationSubScreen"
+            component={NotificationSubScreen}
+          />
           <Stack.Screen
             name="App"
             component={TabNav}
